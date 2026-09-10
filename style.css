@@ -1,0 +1,358 @@
+/* barebao.me — shared stylesheet
+   Plain HTML/CSS, no build step, no framework. */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #555555;
+  --color-muted-light: #767676;
+  --color-border: #d9d9d9;
+  --color-placeholder-bg: #f3f3f3;
+  --color-accent: #2f3e46;
+  --font-heading: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --max-width: 1120px;
+  --content-width: 680px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+p {
+  margin: 0 0 1.25rem;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--color-border);
+  z-index: 200;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+}
+
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+/* Nav */
+
+.site-nav {
+  padding: 2rem 1.75rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  gap: 1.75rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.site-nav a.nav-primary {
+  font-weight: 700;
+}
+
+.site-nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Hero */
+
+.hero {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 1.75rem 4.5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+.hero .subcaption {
+  color: var(--color-muted);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0 auto;
+}
+
+/* Work grid */
+
+.work-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.75rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 780px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
+
+.case-card {
+  display: block;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.case-placeholder {
+  aspect-ratio: 3 / 4;
+  background: var(--color-placeholder-bg);
+  border: 1px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.case-placeholder span {
+  color: var(--color-muted-light);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.case-card:hover .case-placeholder,
+.case-card:focus-visible .case-placeholder {
+  border-color: var(--color-accent);
+}
+
+.case-meta {
+  margin-top: 0.9rem;
+}
+
+.case-client {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+
+.case-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.case-card:hover .case-title,
+.case-card:focus-visible .case-title {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+}
+
+/* About / Contact */
+
+.section {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 3rem 1.75rem;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+}
+
+.section p {
+  color: var(--color-text);
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-text);
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+footer.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.75rem 3rem;
+  color: var(--color-muted-light);
+  font-size: 0.85rem;
+}
+
+/* Case study pages */
+
+.case-hero {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.75rem 3rem;
+  text-align: center;
+}
+
+.case-hero .eyebrow {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.case-hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.case-hero .tagline {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.case-hero-placeholder {
+  max-width: 420px;
+  margin: 2.5rem auto 0;
+  aspect-ratio: 4 / 3;
+  background: var(--color-placeholder-bg);
+  border: 1px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-hero-placeholder span {
+  color: var(--color-muted-light);
+  font-size: 0.85rem;
+}
+
+.case-body {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1rem 1.75rem 4rem;
+}
+
+.case-body h2 {
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
+}
+
+.case-body ul {
+  padding-left: 1.25rem;
+  margin: 0 0 1.25rem;
+}
+
+.case-body li {
+  margin-bottom: 0.6rem;
+}
+
+.placeholder-note {
+  background: var(--color-placeholder-bg);
+  border-left: 3px solid var(--color-border);
+  padding: 0.9rem 1.1rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.also-like {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.75rem 4rem;
+}
+
+.also-like h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.also-like-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  max-width: 640px;
+}
+
+@media (max-width: 600px) {
+  .also-like-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.back-to-top:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
