@@ -302,15 +302,6 @@ footer.site-footer {
   margin-bottom: 0.6rem;
 }
 
-.placeholder-note {
-  background: var(--color-placeholder-bg);
-  border-left: 3px solid var(--color-border);
-  padding: 0.9rem 1.1rem;
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  margin-bottom: 1.25rem;
-}
-
 .also-like {
   max-width: var(--max-width);
   margin: 0 auto;
