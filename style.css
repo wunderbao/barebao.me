@@ -118,7 +118,7 @@ button:focus-visible {
 .hero {
   max-width: 700px;
   margin: 0 auto;
-  padding: 4rem 1.75rem 4.5rem;
+  padding: 2.5rem 1.75rem 2.5rem;
   text-align: center;
 }
 
@@ -156,6 +156,24 @@ button:focus-visible {
   display: block;
   text-decoration: none;
   color: var(--color-text);
+}
+
+.case-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* On laptop-height screens, cap card images so the first row of cards fits without scrolling */
+@media (min-width: 781px) {
+  .case-placeholder,
+  .case-image {
+    width: 100%;
+    max-height: clamp(240px, calc(100vh - 420px), 480px);
+    max-height: clamp(240px, calc(100svh - 420px), 480px);
+  }
 }
 
 .case-placeholder {
